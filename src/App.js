@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 //配置hashRouter 使用独立的router文件
 import { createHashHistory } from 'history';
 import { HashRouter as Router } from 'react-router-dom';
@@ -14,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Router history={history}>
+        {/* 通过renderRoutes解析routes */}
         {renderRoutes(Routes)}
       </Router>
     </div>
