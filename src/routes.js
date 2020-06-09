@@ -1,13 +1,9 @@
-import React from 'react';
+//布局
 import BaseLayout from './container/BaseLayout/index';
-//因为暂时没有任何页面 先简单定义一个主页
-const Index = ()=>{
-    return(
-        <div>
-            我是主页
-        </div>
-    )
-}
+//主页
+import Index from './container/Index/index';
+//帖子页面
+import Posting from './container/Posting/index';
 //配置路由  通过一个数组
 var Routes = [   
     {   
@@ -23,6 +19,11 @@ var Routes = [
                 path: '/index',
                 exact: true,
                 component: Index
+            },
+            {
+                path: '/posting',
+                exact: true,
+                component: Posting
             },
         ]
      },

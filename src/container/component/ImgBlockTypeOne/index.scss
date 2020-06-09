@@ -1,0 +1,55 @@
+.pc_news_imgblock{
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+    img{
+        max-height: 100px;
+    }
+    /*左边imageblock的内边距*/
+    .image_card {
+        .image_news_container{
+            display:flex;
+            flex-wrap:wrap;
+            /*图片框每个item的div*/
+            .image_news_item{
+                margin: 0.5rem;
+                /*设置图片块每一项的标题*/
+                h3{
+                    white-space: nowrap;
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                }
+            }
+        }
+        .ant-card-body{
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-bottom: 14px;
+        }
+        .imageSingle_sec {
+            border-bottom: thin #E8E8E8 solid;
+            display: flex;
+            align-items: center;
+            box-sizing: content-box;
+            height: 95px;
+            padding: 5px 0;
+            .imageSingle_right {
+                margin-left:1em;
+                flex:1;
+                p{
+                    margin-bottom:0;
+                }
+                .realType{
+                    color:red;
+                    font-weight:bolder;
+                    margin-right:1em;
+                }
+                
+            }
+        }
+    }
+}
+
+
+
+

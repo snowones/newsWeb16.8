@@ -1,0 +1,39 @@
+.index{
+    .top_news{
+        padding-top: 10px;
+        .top_left{
+            margin-top: 10px;
+        }
+        .top_center{
+            margin:0 20px;
+        }
+        .ant-tabs-bar{
+            margin-bottom: 0px;
+        }
+        .top_right{
+            margin-top:15px;
+        }
+        .ant-carousel .slick-slide {
+            text-align: center;
+            height: 300px;
+            max-width:400px ;
+            line-height: 300px;
+            background: #364d79;
+            overflow: hidden;
+        }
+        .ant-carousel .slick-slide h3 {
+            color: #fff;
+        }
+        a{
+            color:black
+        }
+        a:hover{
+            color: cornflowerblue;
+        }
+    }
+    .bottom{
+        width: 100%;
+        min-height: 100px;
+    }
+}
+

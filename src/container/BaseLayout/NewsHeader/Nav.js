@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Menu} from 'antd';
 import {Link} from 'react-router-dom';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined } from '@ant-design/icons';
 import './index.scss';
 
 //建立导航
@@ -17,21 +17,21 @@ const Nav = props =>{
                 </Link>
             </Menu.Item>
 
-            <Menu.Item key="hot" icon={<AppstoreOutlined />}>
-                <Link to='/hot'>
-                   热点新闻
+            <Menu.Item key="artcle" icon={<AppstoreOutlined />}>
+                <Link to='/artcle'>
+                   文章
                 </Link>
             </Menu.Item>
 
-            <Menu.Item key="guonei" icon={<AppstoreOutlined />}>
-                <Link to='/guonei'>
-                    国内新闻
+            <Menu.Item key="posting" icon={<AppstoreOutlined />}>
+                <Link to='/posting'>
+                    帖子
                 </Link>
             </Menu.Item>
 
-            <Menu.Item key="guoji" icon={<AppstoreOutlined />}>
-                <Link to='/guoji'>
-                   国际新闻
+            <Menu.Item key="login" icon={<AppstoreOutlined />}>
+                <Link to='/login'>
+                   登录
                 </Link>
             </Menu.Item>
         </Menu>
