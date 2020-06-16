@@ -2,8 +2,11 @@
 import BaseLayout from './container/BaseLayout/index';
 //主页
 import Index from './container/Index/index';
+//文章页面
+import Article from './container/Article/index';
 //帖子页面
-import Posting from './container/Posting/index';
+import Forum from './container/Forum/index';
+
 //配置路由  通过一个数组
 var Routes = [   
     {   
@@ -21,9 +24,14 @@ var Routes = [
                 component: Index
             },
             {
-                path: '/posting',
+                path: '/article',
                 exact: true,
-                component: Posting
+                component: Article
+            },
+            {
+                path: '/forum',
+                exact: true,
+                component: Forum
             },
         ]
      },

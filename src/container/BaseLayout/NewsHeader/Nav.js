@@ -17,15 +17,15 @@ const Nav = props =>{
                 </Link>
             </Menu.Item>
 
-            <Menu.Item key="artcle" icon={<AppstoreOutlined />}>
-                <Link to='/artcle'>
+            <Menu.Item key="article" icon={<AppstoreOutlined />}>
+                <Link to='/article'>
                    文章
                 </Link>
             </Menu.Item>
 
-            <Menu.Item key="posting" icon={<AppstoreOutlined />}>
-                <Link to='/posting'>
-                    帖子
+            <Menu.Item key="forum" icon={<AppstoreOutlined />}>
+                <Link to='/forum'>
+                    论坛
                 </Link>
             </Menu.Item>
 
