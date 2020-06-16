@@ -29,10 +29,8 @@ const Nav = props =>{
                 </Link>
             </Menu.Item>
 
-            <Menu.Item key="login" icon={<AppstoreOutlined />}>
-                <Link to='/login'>
-                   登录
-                </Link>
+            <Menu.Item key="user" icon={<AppstoreOutlined />}>
+                注册/登录
             </Menu.Item>
         </Menu>
 
