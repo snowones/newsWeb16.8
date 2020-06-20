@@ -16,7 +16,8 @@ const NewsHeader = ()=> {
     const [current,setCurrent] = useState('mail');
     //注册登录的弹窗 默认不弹出
     const [modalVisable,setModalVisable] = useState(false);
-
+    //1是为了传递用户名 2是为了判断是否登录修改登录状态
+    const [userName,setUserName] = useState(localStorage.userName)
     //点击切换 修改current
     const handleClick = e => {
         //点击注册登录的位置 直接弹窗 然后把那个链接设为高亮
@@ -33,6 +34,17 @@ const NewsHeader = ()=> {
         localStorage.userName = userLogin.userName;
         localStorage.userId = userLogin.userId;
         localStorage.userAvatar = userLogin.userAvatar;
+        //修改登录状态为1
+        setUserName(userLogin.userName);
+    }
+
+    //登出的方法 点击退出登录把全部登录信息删除
+    const logoutClick = ()=>{
+        localStorage.userName = '';
+        localStorage.userId = '';
+        localStorage.userAvatar = '';
+        //修改登录状态为0
+        setUserName('');
     }
 
     return(
@@ -47,11 +59,12 @@ const NewsHeader = ()=> {
                         </a>
                     </Col>
                     <Col span={18}>
-                        <Nav 
-                            current = {current}
-                            menuItemClick = {handleClick}
-                        />
-                        
+                        <Text.Provider value = {{userName,logoutClick}}> 
+                            <Nav 
+                                current = {current}
+                                menuItemClick = {handleClick}
+                            />
+                        </Text.Provider>  
                         {/* 被这个Provider包裹的全部子组件孙子组件都可以使用value传递的上下文参数 */}
                         {/* 传递一个设置弹窗关闭的方法 和一个登录成功保存用户数据的方法 */}
                         <Text.Provider value = {{setModalVisable,loginclick}}> 

@@ -2,7 +2,8 @@ import React, {useContext, useState, useEffect } from 'react';
 //需要把上下文也引入
 import {Text} from '../BaseLayout/NewsHeader';
 import {Tabs, Modal} from 'antd';
-import Login from './Login/index'
+import Login from './Login/index';
+import Register from './Register'
 //注册登录的模块的父组件 用于弹出注册登录模块
 const User = props => { 
     //使用父组件中这个上下文provider的value变量和方法
@@ -25,7 +26,7 @@ const User = props => {
                     <Login />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab='注册' key='2'>
-                    我是注册组件
+                    <Register />
                 </Tabs.TabPane>
             </Tabs>
         </Modal>
