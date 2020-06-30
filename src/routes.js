@@ -6,6 +6,8 @@ import Index from './container/Index/index';
 import Article from './container/Article/index';
 //帖子页面
 import Forum from './container/Forum/index';
+//详情页面
+import Detail from './container/Detail/index'
 
 //配置路由  通过一个数组
 var Routes = [   
@@ -32,6 +34,11 @@ var Routes = [
                 path: '/forum',
                 exact: true,
                 component: Forum
+            },
+            {
+                path: '/details/:uniquekey',
+                exact: true,
+                component: Detail
             },
         ]
      },

@@ -31,7 +31,7 @@ const Nav = props =>{
     };
 
     return(
-        <Menu mode="horizontal" selectedKeys={[props.current] }
+        <Menu className='nav' mode="horizontal" selectedKeys={[props.current] }
                 style={{background: '#f0f2f5'}}
                 onClick={props.menuItemClick}
                 >

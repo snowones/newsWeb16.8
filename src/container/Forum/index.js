@@ -112,7 +112,7 @@ const Forum = props => {
                 size="large"
                 dataSource={listData}
                 renderItem={item => (
-                    <Link to={`tieziDetails/${item.id}`} target='_blank'>
+                    <Link to={`details/${item.id}`} target='_blank'>
                         <Skeleton avatar title={false} loading={item.loading} active>
                             <List.Item
                                 key={item.title}
