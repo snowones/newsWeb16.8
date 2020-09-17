@@ -52,6 +52,11 @@ const Nav = props =>{
                     论坛
                 </Link>
             </Menu.Item>
+            <Menu.Item key="share" icon={<AppstoreOutlined />}>
+                <Link to='/share'>
+                    分享
+                </Link>
+            </Menu.Item>
 
             {userShow()}
         </Menu>

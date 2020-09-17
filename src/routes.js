@@ -7,7 +7,9 @@ import Article from './container/Article/index';
 //帖子页面
 import Forum from './container/Forum/index';
 //详情页面
-import Detail from './container/Detail/index'
+import Detail from './container/Detail/index';
+//分享页面
+import Share from './container/Share/index';
 
 //配置路由  通过一个数组
 var Routes = [   
@@ -36,10 +38,16 @@ var Routes = [
                 component: Forum
             },
             {
+                path: '/share',
+                exact: true,
+                component: Share
+            },
+            {
                 path: '/details/:uniquekey',
                 exact: true,
                 component: Detail
             },
+           
         ]
      },
 ]

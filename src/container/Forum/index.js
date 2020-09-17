@@ -117,9 +117,9 @@ const Forum = props => {
                             <List.Item
                                 key={item.title}
                                 actions={[
-                                <IconText type="star-o" text="156" key="list-vertical-star-o" />,
-                                <IconText type="like-o" text="156" key="list-vertical-like-o" />,
-                                <IconText type="message" text="2" key="list-vertical-message" />,
+                                    <IconText type="star-o" text="156" key="list-vertical-star-o" />,
+                                    <IconText type="like-o" text="156" key="list-vertical-like-o" />,
+                                    <IconText type="message" text="2" key="list-vertical-message" />,
                                 ]}
                             >
                             <List.Item.Meta
