@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { List, Avatar} from 'antd';
 //antd v4升级后 拿不到以前的Icon了 换成了SmileOutlined
 import { SmileOutlined } from '@ant-design/icons'
-import {api,host} from '../until';
+import {api,host} from '../../public/until';
 import './index.scss';
 
 //定义icon

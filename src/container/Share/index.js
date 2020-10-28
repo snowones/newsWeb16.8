@@ -3,7 +3,7 @@ import './index.scss';
 import {Button,Input,Row,Col,Upload,Modal,Select,message} from 'antd';
 //antd v4升级后 拿不到以前的Icon了 换成了SmileOutlined
 import { SmileOutlined } from '@ant-design/icons'
-import {api,host} from '../until';
+import {api,host} from '../../public/until';
 const { TextArea } = Input;
 const { Option } = Select;
 

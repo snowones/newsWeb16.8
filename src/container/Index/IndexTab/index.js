@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Tabs} from 'antd';
 import {Link} from 'react-router-dom';
-import {host,api} from '../../until';
+import {host,api} from '../../../public/until';
 
 const { TabPane } = Tabs;
 

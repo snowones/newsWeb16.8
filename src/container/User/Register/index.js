@@ -3,7 +3,7 @@ import {Text} from '../../BaseLayout/NewsHeader';
 import { Form, Input, Button, message, Upload, Modal} from 'antd';
 //antd v4升级后 拿不到以前的Icon了 换成了SmileOutlined
 import { SmileOutlined } from '@ant-design/icons'
-import {api,host} from '../../until';
+import {api,host} from '../../../public/until';
 
 //定义icon
 const Icon = props => (

@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect } from 'react';
 import {Text} from '../../BaseLayout/NewsHeader';
 import { Form, Input, Button, Checkbox, message} from 'antd';
-import {api,host} from '../../until';
+import {api,host} from '../../../public/until';
 
 //表单的布局 账号密码输入框的布局
 const layout = {

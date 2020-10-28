@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import './index.scss';
 import { Comment, Avatar, Form, Button, List, Input, message } from 'antd';
-import {api,host} from '../until';
+import {api,host} from '../../public/until';
 const { TextArea } = Input;
 
 //输入评论列表

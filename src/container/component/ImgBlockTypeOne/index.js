@@ -3,7 +3,7 @@ import {Card} from 'antd';
 import {Link} from 'react-router-dom';
 
 //引入封装的fetch方法和host地址
-import {api,host} from '../../until';
+import {api,host} from '../../../public/until';
 import './index.scss';
 
 //外层组件 处理数据
