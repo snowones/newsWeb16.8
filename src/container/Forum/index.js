@@ -134,13 +134,13 @@ const Forum = props => {
                                 <div>
                                     <Row>
                                         <Col span={6}> 
-                                            <img width={136} alt="logo" src={item.img[0]} />
+                                            <img width={272} alt="logo" src={item.img[0]} />
                                         </Col>
                                         <Col span={6}> 
-                                            <img width={136} alt="logo" src={item.img[1]} />
+                                            <img width={272} alt="logo" src={item.img[1]} />
                                         </Col>
                                         <Col span={6}> 
-                                            <img  width={136} alt="logo" src={item.img[2]} />
+                                            <img  width={272} alt="logo" src={item.img[2]} />
                                         </Col>
                                     </Row>
                                 </div>
