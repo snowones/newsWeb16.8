@@ -5,6 +5,8 @@ import { List, Avatar,Row,Col,Button,Skeleton} from 'antd';
 import { SmileOutlined } from '@ant-design/icons'
 import {api,host} from '../../public/until';
 import './index.scss';
+//引入useFetch
+import useFetch from '../../public/useFetch';
 
 //定义icon
 const IconText = props => (
@@ -16,15 +18,37 @@ const IconText = props => (
 
 const Forum = props => {
     const [initLoading,setInitLoading] = useState(true);//页面初始化loading
-    const [loading,setLoading] = useState(false);//每次点击加载更多loading
     const [rawData,setRawData] = useState([]);//请求拿到的数据
     const [listData,setListData] = useState([]);//渲染到页面上的全部数据
 
+    const {result,loading,beginFetch} = useFetch(
+        host + 'newsSelectContentByType',
+        {type:2}
+    );
+
+     //点击加载更多触发
+     const onLoadMore = () => {
+       //设一个loading动画 先渲染空数据
+       setListData(listData.concat([...new Array(3)].map(() => ({ loading: true, name: {} ,img:[,,,]}))))
+       //因为这里拿数据很快 所以做一个暂停的动画展示
+       beginFetch();
+    };
+
+    useEffect(()=>{
+        showData(result);
+    },result)
+
+    useEffect(()=>{
+        return ()=>{
+            console.log('我销毁了')
+        }
+    },[])
+
     //组件加载时调用 相当于componsetNewsentDidMount 
     useEffect(()=>{
-         //拿到数据
+        //拿到数据
         setTimeout(()=>{
-            api({
+            api({   
                 url:host + 'newsSelectContentByType',
                 args: {
                     type:2,
@@ -41,6 +65,11 @@ const Forum = props => {
 
     //处理数据
     const showData = (data)=>{
+        console.log('测试data');
+        console.log(data);
+        if(!data){
+            return;
+        }
         let listData = [];
         //这里先只取三个数据
         for (let i = 0; i < 3; i++) {
@@ -58,33 +87,8 @@ const Forum = props => {
         //修改数据
         setRawData(tempData);
         setListData(tempData);
-        setLoading(false);
     }
 
-    //点击加载更多触发
-    const onLoadMore = () => {
-        //设置loading
-        setLoading(true);
-        //设一个loading动画 先渲染空数据
-        setListData(listData.concat([...new Array(3)].map(() => ({ loading: true, name: {} ,img:[,,,]}))))
-        console.log(loading);
-        //因为这里拿数据很快 所以做一个暂停的动画展示
-        setTimeout(()=>{
-            //这里没有传入页数和要拿的数据数量 因为我把后端做的很简单 每次把全部数据直接拿过来 然后我在拼接三条上去
-            //真实情况每次触发需要page+1 然后把要请求page和每页的数量传入服务器 其实和后端实现和分页是没有区别的
-            api({
-                url:host + 'newsSelectContentByType',
-                args: {
-                    type:2,
-                },
-                callback: (res) => {
-                    //处理拿到的数据并渲染
-                    showData(res);
-                }
-            });
-        },1500)
-        
-    };
 
     /**
      * zyx
@@ -130,13 +134,13 @@ const Forum = props => {
                                 <div>
                                     <Row>
                                         <Col span={6}> 
-                                            <img width={272} alt="logo" src={item.img[0]} />
+                                            <img width={136} alt="logo" src={item.img[0]} />
                                         </Col>
                                         <Col span={6}> 
-                                            <img width={272} alt="logo" src={item.img[1]} />
+                                            <img width={136} alt="logo" src={item.img[1]} />
                                         </Col>
                                         <Col span={6}> 
-                                            <img  width={272} alt="logo" src={item.img[2]} />
+                                            <img  width={136} alt="logo" src={item.img[2]} />
                                         </Col>
                                     </Row>
                                 </div>
