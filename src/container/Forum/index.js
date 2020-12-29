@@ -6,7 +6,8 @@ import { SmileOutlined } from '@ant-design/icons'
 import {api,host} from '../../public/until';
 import './index.scss';
 //引入useFetch
-import useFetch from '../../public/useFetch';
+// import useFetch from '../../public/useFetch';
+import useApi from '../../public/useApi';
 
 //定义icon
 const IconText = props => (
@@ -17,57 +18,48 @@ const IconText = props => (
 );
 
 const Forum = props => {
-    const [initLoading,setInitLoading] = useState(true);//页面初始化loading
     const [rawData,setRawData] = useState([]);//请求拿到的数据
     const [listData,setListData] = useState([]);//渲染到页面上的全部数据
+    const [param,setParam] = useState({type:2})
 
-    const {result,loading,beginFetch} = useFetch(
+    const {result,loading,beginFetch} = useApi(
         host + 'newsSelectContentByType',
-        {type:2}
+        param,
+        [],
+        true
     );
 
-     //点击加载更多触发
-     const onLoadMore = () => {
+    //点击加载更多触发
+    const onLoadMore = () => {
        //设一个loading动画 先渲染空数据
        setListData(listData.concat([...new Array(3)].map(() => ({ loading: true, name: {} ,img:[,,,]}))))
        //因为这里拿数据很快 所以做一个暂停的动画展示
-       beginFetch();
+       setParam({
+           type:3
+       })
     };
 
+    //拿到返回数据后重新拼接结果
     useEffect(()=>{
         showData(result);
     },result)
 
+    //参数变了的话重新请求
     useEffect(()=>{
-        return ()=>{
-            console.log('我销毁了')
-        }
-    },[])
+        beginFetch();
+    },param)
 
     //组件加载时调用 相当于componsetNewsentDidMount 
     useEffect(()=>{
         //拿到数据
-        setTimeout(()=>{
-            api({   
-                url:host + 'newsSelectContentByType',
-                args: {
-                    type:2,
-                },
-                callback: (res) => {
-                    //处理拿到的数据并渲染
-                    showData(res);
-                    //初始化的loading设为false
-                    setInitLoading(false);
-                }
-            });
-        },1)
+        showData(result);
     },[])
 
     //处理数据
     const showData = (data)=>{
         console.log('测试data');
         console.log(data);
-        if(!data){
+        if(!data || data.length == 0){
             return;
         }
         let listData = [];
@@ -96,7 +88,7 @@ const Forum = props => {
      * 点击更多按钮的渲染
      */
     const loadMore = ()=>{
-        if(!initLoading && !loading){
+        if(!loading){
             return (
                 <div style={{ textAlign: 'center', marginTop: 12, height: 32, ineHeight: '32px', }}>
                     <Button onClick={onLoadMore}>点击加载更多</Button>
@@ -110,7 +102,7 @@ const Forum = props => {
     return (
         <div className='forum' style={{margin:"30px 100px"}}>
             <List
-                loading={initLoading}
+                loading={loading}
                 itemLayout="horizontal"
                 loadMore={loadMore()}
                 size="large"
